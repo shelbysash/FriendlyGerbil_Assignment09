@@ -1,5 +1,5 @@
 # Name(s): Shelby Sash, Sidney Huschart, Andrew Mehlman
-# email: sashsk@mail.uc.edu
+# email: sashsk@mail.uc.edu, huschash@mail.uc.edu, 
 # Assignment Number: Assignment 09
 # Due Date: November 7,2024
 # Course #/Section: IS4010/ 001
@@ -32,3 +32,8 @@ except Exception as e:
     
 
 
+
+#step 3 & step 4
+query_manufacturer = f"SELECT Manufacturer FROM tManufacturer WHERE ManufacturerID = {manufacturerID}"
+cursor.execute(query_manufacturer)
+manufacturer = cursor.fetchone().Manufacturer
