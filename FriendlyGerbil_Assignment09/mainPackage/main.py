@@ -66,6 +66,6 @@ itemsSold = cursor.fetchone().NumberOfItemsSold
 
 #step 7 THIS IS THE ONLY OUTPUT
 #Product Description, Manufacturer, Brand, and Number of Items Sold
-descriptiveSentence = (f"The product, {brand}, by {manufacturer}, is described as having {description}, and has sold "
-            f"{itemsSold} items.")
-print(descriptiveSentence)
+
+sentence1= (f"The product is {brand}.")
+
