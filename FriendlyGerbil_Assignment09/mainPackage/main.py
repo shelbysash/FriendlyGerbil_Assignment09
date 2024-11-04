@@ -44,3 +44,5 @@ productID = selectedProduct.ProductID
 description = selectedProduct.Description
 manufacturerID = selectedProduct.ManufacturerID
 brandID = selectedProduct.BrandID
+
+
