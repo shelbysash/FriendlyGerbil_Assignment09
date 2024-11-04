@@ -68,4 +68,10 @@ itemsSold = cursor.fetchone().NumberOfItemsSold
 #Product Description, Manufacturer, Brand, and Number of Items Sold
 
 sentence1= (f"The product is {brand}.")
+print(sentence1)
+sentence2= (f"It is manufactured by {manufacturer}")
+print(sentence2)
+sentence3=(f"It is described as having {description}")
+print(sentence3)
+
 
