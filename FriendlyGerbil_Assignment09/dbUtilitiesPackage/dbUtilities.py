@@ -1,5 +1,5 @@
 # Name(s): Shelby Sash, Sidney Huschart, Andrew Mehlman
-# email: sashsk@mail.uc.edu, 
+# email: sashsk@mail.uc.edu, huschash@mail.uc.edu, mehlmadm@mail.uc.edu
 # Assignment Number: Assignment 09
 # Due Date: November 7,2024
 # Course #/Section: IS4010/ 001

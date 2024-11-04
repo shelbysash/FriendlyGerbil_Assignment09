@@ -1,5 +1,5 @@
 # Name(s): Shelby Sash, Sidney Huschart, Andrew Mehlman
-# email: sashsk@mail.uc.edu
+# email: sashsk@mail.uc.edu, huschash@mail.uc.edu, mehlmadm@mail.uc.edu
 # Assignment Number: Assignment 09
 # Due Date: November 7,2024
 # Course #/Section: IS4010/ 001
@@ -42,8 +42,30 @@ selectedProduct = random.choice(products)
 productID = selectedProduct.ProductID
 description = selectedProduct.Description
 manufacturerID = selectedProduct.ManufacturerID
+brandID = selectedProduct.BrandID
 
 #step 3 & step 4
 query_manufacturer = f"SELECT Manufacturer FROM tManufacturer WHERE ManufacturerID = {manufacturerID}"
 cursor.execute(query_manufacturer)
-manufacturer = cursor.fetchone().ManufacturerbrandID = selectedProduct.BrandID
+manufacturer = cursor.fetchone().Manufacturer
+
+#step 5
+query_brand = f"SELECT Brand FROM tBrand WHERE BrandID = {brandID}"
+cursor.execute(query_brand)
+brand = cursor.fetchone().Brand
+
+#step 6 -- given query
+query_items_sold = f"""
+SELECT TOP (100) PERCENT SUM(dbo.tTransactionDetail.QtyOfProduct) AS NumberOfItemsSold
+FROM dbo.tTransactionDetail
+INNER JOIN dbo.tTransaction ON dbo.tTransactionDetail.TransactionID = dbo.tTransaction.TransactionID
+WHERE (dbo.tTransaction.TransactionTypeID = 1) AND (dbo.tTransactionDetail.ProductID = {productID})
+"""
+cursor.execute(query_items_sold)
+itemsSold = cursor.fetchone().NumberOfItemsSold
+
+#step 7 THIS IS THE ONLY OUTPUT
+#Product Description, Manufacturer, Brand, and Number of Items Sold
+descriptiveSentence = (f"The product, {brand}, by {manufacturer}, is described as having {description}, and has sold "
+            f"{itemsSold} items.")
+print(descriptiveSentence)
