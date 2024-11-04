@@ -44,3 +44,8 @@ productID = selectedProduct.ProductID
 description = selectedProduct.Description
 manufacturerID = selectedProduct.ManufacturerID
 brandID = selectedProduct.BrandID
+
+#step 3 & step 4
+query_manufacturer = f"SELECT Manufacturer FROM tManufacturer WHERE ManufacturerID = {manufacturerID}"
+cursor.execute(query_manufacturer)
+manufacturer = cursor.fetchone().Manufacturer
