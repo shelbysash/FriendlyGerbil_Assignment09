@@ -31,4 +31,16 @@ except Exception as e:
     exit()  #given up. how do i get out of this module 
     
 
+#step 1
+query_string = "SELECT ProductID, [UPC-A ], Description, ManufacturerID, BrandID FROM tProduct"
+#print(query_string)
+#Submit the query to out db server and store the results in a variable
+results = cursor.execute(query_string)
+products = cursor.fetchall()  #maybe ?
 
+#step 2
+selectedProduct = random.choice(products)
+productID = selectedProduct.ProductID
+description = selectedProduct.Description
+manufacturerID = selectedProduct.ManufacturerID
+brandID = selectedProduct.BrandID
