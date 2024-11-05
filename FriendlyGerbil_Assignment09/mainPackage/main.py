@@ -73,6 +73,9 @@ sentence2= (f"It is manufactured by {manufacturer}")
 print(sentence2)
 sentence3=(f"It is described as having {description}")
 print(sentence3)
+sentence4= (f"It has sold {itemsSold} items.")
+print(sentence4)
+
 
 
 
