@@ -33,23 +33,23 @@ except Exception as e:
 #step 1
 query_string = "SELECT ProductID, [UPC-A ], Description, ManufacturerID, BrandID FROM tProduct"
 #print(query_string)
-#Submit the query to out db server and store the results in a variable
+#Submit the queryand store the results in datastructure
 results = cursor.execute(query_string)
 products = cursor.fetchall()  #maybe ?
 
-#step 2
+#step 2 -- randomly selecting rows
 selectedProduct = random.choice(products)
 productID = selectedProduct.ProductID
 description = selectedProduct.Description
 manufacturerID = selectedProduct.ManufacturerID
 brandID = selectedProduct.BrandID
 
-#step 3 & step 4
+#step 3 & step 4 -- building query & store in variable 
 query_manufacturer = f"SELECT Manufacturer FROM tManufacturer WHERE ManufacturerID = {manufacturerID}"
 cursor.execute(query_manufacturer)
 manufacturer = cursor.fetchone().Manufacturer
 
-#step 5
+#step 5 -- repeat process for brand
 query_brand = f"SELECT Brand FROM tBrand WHERE BrandID = {brandID}"
 cursor.execute(query_brand)
 brand = cursor.fetchone().Brand
@@ -64,14 +64,14 @@ WHERE (dbo.tTransaction.TransactionTypeID = 1) AND (dbo.tTransactionDetail.Produ
 cursor.execute(query_items_sold)
 itemsSold = cursor.fetchone().NumberOfItemsSold
 
-#step 7 THIS IS THE ONLY OUTPUT
+#step 7 THIS IS THE ONLY OUTPUT-- individual descriptive sentences
 #Product Description, Manufacturer, Brand, and Number of Items Sold
 
 sentence1= (f"The product is {brand}.")
 print(sentence1)
-sentence2= (f"It is manufactured by {manufacturer}")
+sentence2= (f"It is manufactured by {manufacturer}.")
 print(sentence2)
-sentence3=(f"It is described as having {description}")
+sentence3=(f"It is described as having {description}.")
 print(sentence3)
 sentence4= (f"It has sold {itemsSold} items.")
 print(sentence4)
